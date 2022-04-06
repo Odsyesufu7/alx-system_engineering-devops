@@ -1,0 +1,14 @@
+total 21
+drwxr-xr-x 1 oyesu 197609    0 Apr  6 16:56 .
+drwxr-xr-x 1 oyesu 197609    0 Apr  6 13:41 ..
+-rwxr-xr-x 1 oyesu 197609   32 Apr  6 13:45 0-hello_world
+-rwxr-xr-x 1 oyesu 197609   28 Apr  6 14:03 1-confused_smiley
+-rwxr-xr-x 1 oyesu 197609   28 Apr  6 14:11 2-hellofile
+-rwxr-xr-x 1 oyesu 197609   39 Apr  6 14:53 3-twofiles
+-rwxr-xr-x 1 oyesu 197609   35 Apr  6 15:07 4-lastlines
+-rwxr-xr-x 1 oyesu 197609   35 Apr  6 15:17 5-firstlines
+-rwxr-xr-x 1 oyesu 197609   40 Apr  6 15:39 6-third_line
+-rwxr-xr-x 1 oyesu 197609   87 Apr  6 16:33 7-file
+-rwxr-xr-x 1 oyesu 197609   36 Apr  6 16:53 8-cwd_state
+-rw-r--r-- 1 oyesu 197609 2742 Apr  6 13:50 README.md
+-rw-r--r-- 1 oyesu 197609    0 Apr  6 16:56 ls_cwd_content
