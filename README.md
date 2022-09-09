@@ -1,54 +1,87 @@
-File 0-hello_world is a script that prints “Hello, World”, followed by a new line to the standard output.
+# Web Infrastructure Design
 
-File 1-confused_smiley is a script that displays a confused smiley "(Ôo)'.
+Project done during **Full Stack Software Engineering studies** at **ALX**. It aims to learn about how to design a Web Infrastructure.
 
-File 2-hellofile displays the content of the /etc/passwd file.
+## Key concepts
+* Network basics
+* Server
+* Web server
+* Application server
+* DNS & DNS record types
+* Load Balancer
+* Monitoring
+* Database
+* Single point of failure
+* HTTP & HTTPS
+* Firewall
 
-File 3-twofiles displays the content of /etc/passwd and /etc/hosts.
+## File Descriptions
 
-File 4-lastlines displays the last 10 lines of /etc/passwd.
+Each file contains a link to an image hosted on Imgur. These images are based on the following requirements: <br />
 
-File 5-firstlines displays the first 10 lines of /etc/passwd.
+### [0-simple_web_stack](0-simple_web_stack)
 
-File 6-third_line is a script that displays the third line of the file iacta.
+On a whiteboard, design a one server web infrastructure that hosts the website that is reachable via `www.foobar.com.` Start your explanation by having a user wanting to access your website. <br />
 
-File 7-file is a script that creates a file named exactly *\'"Holberton School"'\*$?*****:) containing the text Holberton School ending by a new line.
+You must use:
 
-File 8-cwd_state is a script that writes into the file ls_cwd_content the result of the command ls -la.
+* 1 physical server
 
-File 9-duplicate_last_line is a script that duplicates the last line of the file iacta.
+* 1 web server (Nginx)
 
-File 10-no_more_js is a script that deletes all the regular files (not the directories) with a .js extension that are present in the current directory and all its subfolders.
+* 1 application server
 
-File 11-directories is a script that counts the number of directories and sub-directories in the current directory.
+* 1 application files (your code base)
 
-File 12-newest_files is a script that displays the 10 newest files in the current directory.
+* 1 database (MySQL)
 
-File 13-unique is a script that takes a list of words as input and prints only words that appear exactly once.
+* 1 domain name `foobar.com` configured with a `www` record that points to your server IP `8.8.8.8`
 
-File 14-findthatword displays lines containing the pattern “root” from the file /etc/passwd.
+### [1-distributed_web_infrastructure](1-distributed_web_infrastructure)
 
-File 15-countthatword displays the number of lines that contain the pattern “bin” in the file /etc/passwd.
+On a whiteboard, design a three servers web infrastructure that host the website `www.foobar.com`. <br />
 
-File 16-whatsnext displays lines containing the pattern “root” and 3 lines after them in the file /etc/passwd.
+You must add to [0-simple_web_stack](0-simple_web_stack):
 
-File 17-hidethisword displays all the lines in the file /etc/passwd that do not contain the pattern “bin”.
+* 2 physical servers
 
-File 18-letteronly displays all lines of the file /etc/ssh/sshd_config starting with a letter.
+* 1 web server (Nginx)
 
-File 19-AZ replaces all characters A and c from input to Z and e respectively.
+* 1 application server
 
-File 20-hiago is a script that removes all letters c and C from input.
+* 1 load-balancer (HAproxy)
 
-File 21-reverse is a script that reverse its input.
+* 1 application files (your code base)
 
-File 22-users_and_homes is a script that displays all users and their home directories, sorted by users.
+* 1 database (MySQL)
 
-File 100-empty_casks is a command that finds all empty files and directories in the current directory and all sub-directories.
+### [2-secured_and_monitored_web_infrastructure](2-secured_and_monitored_web_infrastructure)
 
-File 101-gifs is a script that lists all the files with a .gif extension in the current directory and all its sub-directories.
+On a whiteboard, design a three servers web infrastructure that host the website `www.foobar.com`, it must be secured, serve encrypted traffic and be monitored. <br />
 
-File 102-acrostic is a script that decodes acrostics that use the first letter of each line.
+You must add to [1-distributed_web_infrastructure](1-distributed_web_infrastructure):
 
-File 103-the_biggest_fan is a script that parses web servers logs in TSV format as input and displays the 11 hosts or IP addresses which did the most requests.
-Music in this video
+* 3 firewalls
+
+* 1 SSL certificate to serve `www.foobar.com` over HTTPS
+
+* 3 monitoring clients (data collector for Sumologic or other monitoring services)
+
+### [3-scale_up](3-scale_up)
+
+You must add to [2-secured_and_monitored_web_infrastructure](2-secured_and_monitored_web_infrastructure):
+
+* 1 physical server
+
+* 1 load-balancer (HAproxy) configured as cluster with the other one
+
+* Split components (web server, application server, database) with their own server
+
+## Files
+
+| Filename | Description |
+| -------- | ----------- |
+| [`0-simple_web_stack`](./0-simple_web_stack)  | Web Infrastructure Design with a LAMP stack. This contains: 1 server, 1 web server, 1 application server, 1 database and 1 domain name |
+| [`1-distributed_web_infrastructure`](./1-distributed_web_infrastructure) | Web Infrastructure Design, based on `0-simple_web_stack` that contains some additional components: 1 server, 1 web server, 1 application server, 1 load-balancer, 1 set of application files, 1 database |
+| [`2-secured_and_monitored_web_infrastructure`](2-secured_and_monitored_web_infrastructure) | Web Infrastructure Design, based on `1-distributed_web_infrastructure` that contains some additional components: 3 firewalls, 1 SSL certificate, 3 monitoring clients |
+| [`3-scale_up`](3-scale_up) | Web Infrastructure Design, based on `2-secured_and_monitored_web_infrastructure` that contains some additional components: 1 server, 1 load-balancer |
